@@ -8,14 +8,7 @@ import ThemeContext from './ThemeContext';
 
 class Details extends React.Component {
     state = { loading: true, showModal: false };
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {
-    //         loading: true
-    //     };
-    // }
-
+    
     componentDidMount () {
         // throw new Error("derp");
         pet.animal(this.props.id)
@@ -32,6 +25,7 @@ class Details extends React.Component {
             });
         }, console.error);
     }
+    
     toggleModal = () => this.setState({ showModal: !this.state.showModal })
     adopt = () => navigate(this.state.url)
     render() {
@@ -85,5 +79,5 @@ export default function DetailsWithErrorBoundary(props) {
         <ErrorBoundary>
             <Details {...props}/>
         </ErrorBoundary>
-    )
-};
+    );
+}
